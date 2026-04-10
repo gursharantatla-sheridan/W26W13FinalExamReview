@@ -1,5 +1,6 @@
 using W26W13FinalExamReview.Components;
 using W26W13FinalExamReview.Data;
+using W26W13FinalExamReview.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,9 @@ builder.Services.AddRazorComponents()
 // register the context class
 string connStr = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
 builder.Services.AddDbContext<ProductContext>(options => options.UseSqlServer(connStr));
+
+// register the service class
+builder.Services.AddScoped<ProductService>();
 
 var app = builder.Build();
 
