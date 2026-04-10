@@ -7,7 +7,7 @@ namespace W26W13FinalExamReview.Data
     public class ProductContext : DbContext
     {
         // establish connection - using a constructor
-        public ProductContext(DbContextOptions<ProductContext> options) : base(options) 
+        public ProductContext(DbContextOptions<ProductContext> options) : base(options)
         { 
         }
 
