@@ -31,5 +31,19 @@ namespace W26W13FinalExamReview.Services
 
             return await products.ToListAsync();
         }
+
+        public async Task<List<Product>> GetProductsByCategoryAsync(int catId)
+        {
+            var products = _context.Products
+                                   .Include(p => p.Category)
+                                   .AsQueryable();
+
+            if (catId > 0)
+            {
+                products = products.Where(p => p.CategoryId == catId);
+            }
+
+            return await products.ToListAsync();
+        }
     }
 }
